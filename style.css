@@ -1,0 +1,285 @@
+@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@300;400;500;600;700&display=swap');
+
+body{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Raleway', sans-serif;
+    background-color: #fff;
+}
+a {
+    text-decoration: none;
+}
+ul{
+    list-style: none;
+}
+input,button,textarea{
+    border: none;
+    outline: none;
+}
+
+/* ---------------- NAVIGATION ---------------- */
+nav{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    left: 0;
+    top: 0;
+    width: 100%;
+    z-index: 1;
+}
+
+nav ul{
+    display: flex;
+}
+nav ul li a{
+    height: 40px;
+    line-height: 43px;
+    margin: 3px;
+    margin-top: -70px;
+    padding: 0 22px;
+    display: flex;
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    font-weight: 500;
+    letter-spacing: 1px;
+    border-radius: 3px;
+    transition: 0.6s ease-in-out;
+    color: white;
+}
+nav ul li a:hover{
+    background-color: #fc6f41;
+    color: white;
+    box-shadow: 5px 10px 30px rgba(252,50,0,0.397);
+}
+.active{
+    background-color: #fc6f41;
+    color: white;
+    box-shadow: 5px 10px 30px rgba(252,50,0,0.397);
+}
+
+.bg-img{
+    position: relative;
+    z-index: 1;
+    width: 100%;
+    height: 450px;
+    background-repeat: no-repeat;
+    background-size: 100%;
+    filter: brightness(60%);
+    background-image: url('./images/php13.jpeg');
+}
+.main{
+    position: absolute;
+    top: 11%;
+    left: 16%;
+    z-index: 3;
+}
+.main-heading{
+    width: 500px;
+    transform: translate(-16%,-47%);
+    z-index: 3;
+    position: absolute;
+    animation-name: heading-h1;
+    animation-timing-function: linear;
+    animation-duration: 1s;
+    animation-iteration-count: 1;
+    animation-fill-mode: backwards;
+}
+@keyframes heading-h1 {
+    from {left: 0%;}
+    to {left: 16%;}
+}
+.main-heading h1{
+    font-size: 45px;
+    margin: 0;
+    margin-top: 130px;
+    letter-spacing: 3px;
+    color: #fff;
+    z-index: 3;
+}
+
+.main-heading p{
+    color: #e2e2e2;
+    z-index: 3;
+    animation-delay: 2s;
+}
+
+.main-btn{
+    width: 120px;
+    height:40px ;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #fc6f41;
+    border-radius: 10px;
+    color: #595555;
+    transition: 0.6s ease-in-out;
+    z-index: 2;
+}
+.main-btn:hover{
+    box-shadow: 5px 10px 30px rgba(252,50,0,0.397);
+}
+.feature{
+    width: 100%;
+    height: 90vh;
+    justify-content: center;
+    display: flex;
+    box-sizing: border-box;
+    flex-direction: column;
+    margin-top: -100px;
+}
+.feature-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.feature-box{
+    background-color: #fff;
+    width: 300px;
+    height: 450px;
+    margin: 20px;
+    border-radius: 10px;
+    overflow: hidden;
+    position: relative;
+    box-shadow: 5px 10px 30px rgba(0,0,0,0.13);
+}
+.f-img{
+    width: 100%;
+    height: 63%;
+}
+.f-img img{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    filter: brightness(80%);
+}
+.f-text h4{
+    margin-top: 12px;
+    justify-content: center;
+    text-align: center;
+}
+.f-text p{
+    text-align: center;
+}
+.f-text a{
+    margin-left: 90px;
+
+}
+.about{
+    width: 100%;
+    height: 110vh;
+    box-sizing: border-box;
+    align-items: center;
+    justify-content: space-around;
+    padding: 50px 5% 0px 5%;
+    position: relative;
+    display: flex;
+}
+.about-img{
+    width: 50%;
+}
+.about-img img{
+    width: 500px;
+    filter: brightness(80%);
+}
+.about-text{
+    width: 45%;
+    color: black;
+    text-align: right;
+}
+.about-text h2{
+    position: relative;
+    animation-name: example;
+    animation-duration: 2ss;  
+    animation-iteration-count: 1;
+    animation-delay: 1s;
+    animation-timing-function: linear;
+    animation-fill-mode: backwards;
+}
+.about-text p{
+    position: relative;
+    animation-name: par;
+    animation-timing-function: linear;
+    animation-iteration-count: 1;
+    animation-delay: 2s;
+    animation-fill-mode: backwards;
+    animation-duration: 2s;
+}
+.about-text .main-btn{
+    position: relative;
+    animation-name: main-btn;
+    animation-timing-function: linear;
+    animation-iteration-count: 1;
+    animation-delay: 3s;
+    animation-fill-mode: backwards;
+    animation-duration: 2s;
+}
+
+@keyframes example {
+    from {right: 0%; margin-right: 0%;}
+    to {right: 4%;}
+  }
+@keyframes par {
+    from {right: 0%; margin-right: 0%;}
+    to {right: 4%;}
+}
+@keyframes main-btn {
+    from {right: 0%;}
+    to {right: 6%;}
+}
+
+.about-text h2{
+    font-size: 2.2rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+.about-text p{
+    font-size: 1.1rem;
+    color: #4b4b4b;
+}
+.about-text button{
+    float: right;
+}
+
+.contact{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    padding: 40px 0px;
+}
+.contact-heading{
+    text-align: center;
+    margin: 40px 0px;
+    margin-bottom: 80px;
+}
+.contact-heading h1{
+    font-size: 2.2rem;
+}
+.contact form{
+    width: 600px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+.contact form input, .contact form textarea{
+    width: 100%;
+    height: 40px;
+    margin: 5px 0px;
+    padding: 10px;
+    background-color: #e2e2e2;
+    color: #1e1e1e;
+    border-radius: 5px;
+}
+.contact form textarea{
+    height: 150px;
+}
+.contact-btn{
+    margin-top: 40px;
+}
