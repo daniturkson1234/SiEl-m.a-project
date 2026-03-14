@@ -5,25 +5,47 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Si-El M.A</title>
     <link rel="stylesheet" href="style.css">
-    <link rel="shortcut icon" href="./images/logo.png" type="image/x-icon">
+    <link rel="shortcut icon" href="./images/logo.png" width="250" height="250" type="image/x-icon">
 </head>
 <body>
     <section class="bg-img" style="position: relative; z-index:1;"></section>
     <section class="main" id="main">
         <nav>
             <a href="" style="margin-left:-50px;">
-                <img style="display: flex; margin-right: 320px; z-index:3; margin-top: -60px; margin-left:5px;" width="150" height="130px" src="./images/logo.png" alt="">
+                <img class="logo" style="display: flex; margin-right: 320px; z-index:3; margin-top: -60px; margin-left:5px;" width="150" height="130px" src="./images/logo.png" alt="">
             </a>
 
-            <ul>
-                <li><a href="#" class="active">Home</a></li>
-                <li><a data-scroll href="#feature">Features</a></li>
-                <li><a data-scroll="" href="#about">About Us</a></li>
-                <li><a data-scroll="" href="#contact">Contact</a></li>
+            <div class="container-fluid">
+                <button class="navbar-toggler" style="float: right;" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <i class="fa-solid fa-bars"></i>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav">
+                        <li class="nav-item">
+                            <a href="#" class="active nav-link">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a data-scroll href="#feature" class="nav-link">Features</a>     
+                        </li>
+                        <li class="nav-item">
+                            <a data-scroll="" href="#about" class="nav-link">About Us</a>
+                        </li>
+                        <li class="nav-item">
+                            <a data-scroll="" href="#contact" class="nav-link">Contact</a>
+                        </li> 
+                    </ul>
+                </div>
+            </div>
+            
+            <ul style="display: none !important;" class="dropdown-menu dropdown-menu-dark d-none">
+                    <li><a href="#" class="active dropdown-item">Home</a></li>
+                    <li><a data-scroll href="#feature" class="dropdown-item">Features</a></li>
+                    <li><a data-scroll="" href="#about" class="dropdown-item">About Us</a></li>
+                    <li><a data-scroll="" href="#contact" class="dropdown-item">Contact</a></li>
             </ul>
         </nav>
         <div class="main-heading" style="margin-top: 40px;">
-            <h1>Building a relatonship with Customers</h1>
+            <h1>Building a relationship with Customers</h1>
             <p>Prioritizing the satisfaction of needs and assurance of all clients and customers worldwide. The agency you can trust.</p>
             <a data-scroll="" href="#footer" class="main-btn">Contact</a>
         </div>
@@ -97,15 +119,15 @@
                         <svg class="bi" width="30" height="24"><use xlink:href="#bootstrap"/></svg>
                     </a>
                     <div style="color: white; margin-left: 30px;">
-                        <label style="text-transform: uppercase; font-size: 20px;">For more Information :</label>
+                        <label class="footer-label" style="text-transform: uppercase; font-size: 1.2rem;">For more Information :</label>
                         <ul style="color: white; list-style: none;">
-                            <li style="margin-bottom: 10px;">Email: sielma1967@gmail.com</li>
-                            <li style="margin-bottom: 10px;">Tel: +1(804) 838 0974 / +1(804) 838 0975</li>
-                            <li>Digital-  Address: PA-19 greenfield-avenue</li>
+                            <li style="margin-bottom: 10px; font-size:1.1rem;">Email: sielma1967@gmail.com</li>
+                            <li style="margin-bottom: 10px; font-size:1.1rem;">Tel: +1(804) 838 0974 / +1(804) 838 0975</li>
+                            <li style="font-size:1.1rem;">Digital-  Address: PA-19 greenfield-avenue</li>
                         </ul>
                     </div>
                     <div>
-                        <span style="float:right; color: black; margin-right: 70px;">&copy; 2022 Company, Inc</span>
+                        <span class="footer-span" style="float:right; color: black; margin-right: 70px;">&copy; 2022 Company, Inc</span>
                     </div>
                 </div>
 
