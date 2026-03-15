@@ -287,6 +287,40 @@ nav ul li a:hover{
     margin-top: 40px;
 }
 
+.contact .form-status-message{
+    width: 600px;
+    max-width: 90%;
+    margin: 0 auto 20px auto;
+    padding: 14px 18px;
+    border-radius: 8px;
+    text-align: center;
+    font-size: 1rem;
+    font-weight: 600;
+    line-height: 1.5;
+    box-sizing: border-box;
+    transition: opacity 0.6s ease, transform 0.6s ease;
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.contact .success-message{
+    background-color: #dff6e5;
+    color: #1f7a3f;
+    border: 1px solid #9ad7ac;
+}
+
+.contact .error-message{
+    background-color: #fde2e2;
+    color: #b42318;
+    border: 1px solid #f5a3a3;
+}
+
+.contact .hide-status-message{
+    opacity: 0;
+    transform: translateY(-10px);
+    pointer-events: none;
+}
+
 @media(max-width:570px){
     .logo{
         margin-left: 2% !important;
@@ -387,5 +421,11 @@ nav ul li a:hover{
     }
     .contact-btn{
         margin-top: 20px;
+    }
+    .contact .form-status-message{
+        width: 85% !important;
+        font-size: 0.95rem;
+        padding: 12px 14px;
+        margin-bottom: 15px;
     }
 }
