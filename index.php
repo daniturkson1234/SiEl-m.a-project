@@ -1,3 +1,11 @@
+<?php
+session_start();
+
+$form_message = $_SESSION['form_message'] ?? '';
+$form_message_type = $_SESSION['form_message_type'] ?? '';
+
+unset($_SESSION['form_message'], $_SESSION['form_message_type']);
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -28,31 +36,33 @@
                             <a data-scroll href="#feature" class="nav-link">Features</a>     
                         </li>
                         <li class="nav-item">
-                            <a data-scroll="" href="#about" class="nav-link">About Us</a>
+                            <a data-scroll href="#about" class="nav-link">About Us</a>
                         </li>
                         <li class="nav-item">
-                            <a data-scroll="" href="#contact" class="nav-link">Contact</a>
+                            <a data-scroll href="#contact" class="nav-link">Contact</a>
                         </li> 
                     </ul>
                 </div>
             </div>
             
             <ul style="display: none !important;" class="dropdown-menu dropdown-menu-dark d-none">
-                    <li><a href="#" class="active dropdown-item">Home</a></li>
-                    <li><a data-scroll href="#feature" class="dropdown-item">Features</a></li>
-                    <li><a data-scroll="" href="#about" class="dropdown-item">About Us</a></li>
-                    <li><a data-scroll="" href="#contact" class="dropdown-item">Contact</a></li>
+                <li><a href="#" class="active dropdown-item">Home</a></li>
+                <li><a data-scroll href="#feature" class="dropdown-item">Features</a></li>
+                <li><a data-scroll href="#about" class="dropdown-item">About Us</a></li>
+                <li><a data-scroll href="#contact" class="dropdown-item">Contact</a></li>
             </ul>
         </nav>
+
         <div class="main-heading" style="margin-top: 40px;">
             <h1>Building a relationship with Customers</h1>
             <p>Prioritizing the satisfaction of needs and assurance of all clients and customers worldwide. The agency you can trust.</p>
-            <a data-scroll="" href="#footer" class="main-btn">Contact</a>
+            <a data-scroll href="#footer" class="main-btn">Contact</a>
         </div>
     </section>
+
     <section class="features" id="feature">
         <div class="feature-container">
-        <div class="feature-box">
+            <div class="feature-box">
                 <div class="f-img">
                     <img src="./images/php3.png" alt="">
                 </div>
@@ -86,6 +96,7 @@
             </div>
         </div>
     </section>
+
     <section class="about" id="about">
         <div class="about-img">
             <img src="./images/php4.jpeg" alt="">
@@ -103,10 +114,10 @@
             <p>All comments and suggestions can be shared in the form below. Your view is our number one priority.</p>
         </div>
 
-        <?php if (isset($_GET['status']) && $_GET['status'] === 'success'): ?>
-            <p style="color: green; font-weight: 600; margin-bottom: 15px;">
-                Your message has been sent successfully.
-            </p>
+        <?php if (!empty($form_message)): ?>
+            <div id="form-status-message" class="form-status-message <?php echo $form_message_type === 'success' ? 'success-message' : 'error-message'; ?>">
+                <?php echo htmlspecialchars($form_message); ?>
+            </div>
         <?php endif; ?>
 
         <form action="process.php" method="POST">
@@ -114,14 +125,13 @@
             <input type="email" id="email" name="email" placeholder="Your Email" required>
             <textarea name="message" id="message" placeholder="Type your message here............" required></textarea>
             <button class="main-btn contact-btn" type="submit">Continue</button>
-
         </form>
     </section>
 
     <section id="footer" style="background-color: #abb4b4; height: 200px;">
         <div class="container">
             <footer class="d-flex flex-wrap border-top">
-                <div class=" d-flex align-items-center">
+                <div class="d-flex align-items-center">
                     <a href="/" class="mb-3 me-2 mb-md-0 text-muted text-decoration-none lh-1">
                         <svg class="bi" width="30" height="24"><use xlink:href="#bootstrap"/></svg>
                     </a>
@@ -130,20 +140,31 @@
                         <ul style="color: white; list-style: none;">
                             <li style="margin-bottom: 10px; font-size:1.1rem;">Email: sielma1967@gmail.com</li>
                             <li style="margin-bottom: 10px; font-size:1.1rem;">Tel: +1(804) 838 0974 / +1(804) 838 0975</li>
-                            <li style="font-size:1.1rem;">Digital-  Address: PA-19 greenfield-avenue</li>
+                            <li style="font-size:1.1rem;">Digital- Address: PA-19 greenfield-avenue</li>
                         </ul>
                     </div>
                     <div>
                         <span class="footer-span" style="float:right; color: black; margin-right: 70px;">&copy; 2022 Company, Inc</span>
                     </div>
                 </div>
-
             </footer>
         </div>
     </section>
  
     <script>
-        var scroll = new SmoothScroll('a[href*="#"]', { speed: 300});
+        var scroll = new SmoothScroll('a[href*="#"]', { speed: 300 });
+
+        const statusMessage = document.getElementById("form-status-message");
+
+        if (statusMessage) {
+            setTimeout(() => {
+                statusMessage.classList.add("hide-status-message");
+            }, 60000);
+
+            setTimeout(() => {
+                statusMessage.remove();
+            }, 61000);
+        }
     </script>
     <script src="path/to/smooth-scroll.polyfills.min.js"></script>
 </body>
