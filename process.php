@@ -1,46 +1,46 @@
 <?php
 
+if ($_SERVER["REQUEST_METHOD"] !== "POST") {
+    header("Location: index.php");
+    exit;
+}
 
-if ( ! filter_var($_POST["username"])) {
+$username = trim($_POST["username"] ?? "");
+$email = trim($_POST["email"] ?? "");
+$message = trim($_POST["message"] ?? "");
+
+if ($username === "") {
     die("Username is required");
 }
-if ( ! filter_var($_POST["email"], FILTER_VALIDATE_EMAIL)) {
+
+if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
     die("Valid email is required");
 }
-if ( ! filter_var($_POST["message"])) {
-    die("message input required");
+
+if ($message === "") {
+    die("Message input is required");
 }
-
-
-
 
 $mysqli = require __DIR__ . "/database.php";
 
 $sql = "INSERT INTO messagetab (username, email, message)
-        VALUES (?,?,?)";
-        
-$stmt = $mysqli->stmt_init();
+        VALUES (?, ?, ?)";
 
-if ( ! $stmt->prepare($sql)) {
+$stmt = $mysqli->prepare($sql);
+
+if (!$stmt) {
     die("SQL error: " . $mysqli->error);
 }
 
-$stmt->bind_param("sss",
-                  $_POST["username"],
-                  $_POST['email'],
-                  $_POST['message']);
-                  
+$stmt->bind_param("sss", $username, $email, $message);
+
 if ($stmt->execute()) {
 
-    header("Location: index.php#contact");
+    header("Location: index.php?status=success#contact");
     exit;
-    
-} else {
-    
-    if ($mysqli->errno === 1062) {
-        // die("email already taken");
-    } else {
-        die($mysqli->error . " " . $mysqli->errno);
-    }
-}
 
+} else {
+
+    die("Database error: " . $mysqli->error);
+
+}
