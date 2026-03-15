@@ -102,6 +102,13 @@
             <h1>Contact Us</h1>
             <p>All comments and suggestions can be shared in the form below. Your view is our number one priority.</p>
         </div>
+
+        <?php if (isset($_GET['status']) && $_GET['status'] === 'success'): ?>
+            <p style="color: green; font-weight: 600; margin-bottom: 15px;">
+                Your message has been sent successfully.
+            </p>
+        <?php endif; ?>
+
         <form action="process.php" method="POST">
             <input type="text" id="username" name="username" placeholder="Your Full Name" required>
             <input type="email" id="email" name="email" placeholder="Your Email" required>
